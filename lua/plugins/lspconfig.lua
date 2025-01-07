@@ -19,6 +19,7 @@ return {
 			})
 
 			lspconfig.rust_analyzer.setup({})
+			lspconfig.pyright.setup({})
 
 			lspconfig.gopls.setup({
 				filetypes = { "go", "gomod", "gowork", "gotmpl" },
@@ -38,6 +39,38 @@ return {
 						templ = "html",
 					},
 				},
+			})
+
+			lspconfig.emmet_ls.setup({
+				-- on_attach = on_attach,
+				capabilities = capabilities,
+				filetypes = {
+					"css",
+					"eruby",
+					"html",
+					"javascript",
+					"javascriptreact",
+					"less",
+					"sass",
+					"scss",
+					"svelte",
+					"pug",
+					"typescriptreact",
+					"vue",
+				},
+				init_options = {
+					html = {
+						options = {
+							-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+							["bem.enabled"] = true,
+						},
+					},
+				},
+			})
+
+			lspconfig.ts_ls.setup({
+				capabilities = capabilities,
+				filetypes = { "css", "html", "javascript", "javascriptreact" },
 			})
 
 			lspconfig.templ.setup({})
